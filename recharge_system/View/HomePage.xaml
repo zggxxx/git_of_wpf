@@ -183,6 +183,7 @@
                                     <MenuItem Style="{StaticResource expanderMenuStyle}" Click="MenuItem_Click_1" VerticalContentAlignment="Center" Icon="&#xe7f5;" FontFamily="../Assets/iconfont/#iconfont" Header="设置"/>
                                     <MenuItem Style="{StaticResource expanderMenuStyle}" Command="{Binding OpenSocketTestPage}" CommandParameter="{Binding ElementName=frame}" VerticalContentAlignment="Center" Icon="&#xe76a;" FontFamily="../Assets/iconfont/#iconfont" Header="Socket Test"></MenuItem>
                                     <MenuItem Style="{StaticResource expanderMenuStyle}" Click="MenuItem_Click_2" VerticalContentAlignment="Center" Icon="&#xe7f5;" FontFamily="../Assets/iconfont/#iconfont" Header="Observable"/>
+                                    <MenuItem Style="{StaticResource expanderMenuStyle}" Click="MenuItem_Click_3" VerticalContentAlignment="Center" Icon="&#xe7f5;" FontFamily="../Assets/iconfont/#iconfont" Header="Lili3"/>
                                 </ItemsControl>
                             </StackPanel>
                         </Expander>
