@@ -1,0 +1,20 @@
+﻿<Page x:Class="recharge_system.View.MainContainerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:recharge_system.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainContainerPage">
+
+    <Grid>
+        <TabControl BorderThickness="0" Background="WhiteSmoke">
+            <TabItem Header="新闻">
+                <StackPanel>
+                    <Frame Source="../View/NewsPage.xaml"></Frame>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

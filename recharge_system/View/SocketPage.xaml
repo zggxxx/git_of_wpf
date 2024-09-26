@@ -1,0 +1,28 @@
+﻿<Page x:Class="recharge_system.View.SocketPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:recharge_system.View"
+      xmlns:vm="clr-namespace:recharge_system.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SocketPage">
+    <Page.DataContext>
+        <vm:SocketPageVM></vm:SocketPageVM>
+    </Page.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="内容" FontSize="30"></TextBlock>
+            <TextBox Width="250" Text="{Binding InputMsg}"></TextBox>
+            <Button Content="测试连接" Command="{Binding ConnectServer}"></Button>
+            <Button Content="发送消息" Command="{Binding SendMsg}"></Button>
+            <Button Content="UDP连接" Command="{Binding ConnectUDP}"></Button>
+        </StackPanel>
+        <TextBox  Grid.Row="1" Text="{Binding MsgBox}" VerticalAlignment="Top" AcceptsReturn="True" Height="300" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"></TextBox>
+    </Grid>
+</Page>

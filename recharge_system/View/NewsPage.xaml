@@ -1,0 +1,89 @@
+﻿<Page x:Class="recharge_system.View.NewsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:recharge_system.View"
+      xmlns:model="clr-namespace:recharge_system.Model"
+      xmlns:vm="clr-namespace:recharge_system.ViewModel"
+      xmlns:comm="clr-namespace:recharge_system.Common"
+      xmlns:system="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NewsPage">
+    <Page.DataContext>
+        <vm:NewsPageVM></vm:NewsPageVM>
+    </Page.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="今日消息" Foreground="Gray" FontSize="30"></TextBlock>
+        <Grid Grid.Row="1">
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel x:Name="leftImg" Width="435" Height="150" Margin="0,0,-100,0">
+                    <Image  Stretch="UniformToFill" Source="{Binding SecImage}">
+                        <Image.RenderTransform>
+                            <TranslateTransform x:Name="leftImgTrans" X="0" ></TranslateTransform>
+                        </Image.RenderTransform>
+                    </Image>
+                </StackPanel>
+                <StackPanel x:Name="centerImg" Width="435" Height="170" Panel.ZIndex="1">
+                    <Image Stretch="UniformToFill" Source="{Binding CurrentImage}">
+                        <Image.RenderTransform>
+                            <TranslateTransform x:Name="centerImgTrans" X="0"></TranslateTransform>
+                        </Image.RenderTransform>
+                    </Image>
+                </StackPanel>
+                <StackPanel x:Name="rightImg" Width="435" Height="150" Margin="-100,0,0,0">
+                    <Image Stretch="UniformToFill" Source="{Binding LastImage}">
+                        <Image.RenderTransform>
+                            <TranslateTransform x:Name="rightImgTrans" X="0"></TranslateTransform>
+                        </Image.RenderTransform>
+                    </Image>
+                </StackPanel>
+            </StackPanel>
+            <Button Width="10" Height="30" x:Name="btnL" HorizontalAlignment="Left" Panel.ZIndex="1" Command="{Binding GoNextPhotoCommand}" Margin="10,0,0,0">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="PreviewMouseLeftButtonDown" SourceName="btnL">
+                        <BeginStoryboard >
+                            <Storyboard>
+                                <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="leftImg" Storyboard.TargetProperty="Height" To="170.0" Duration="0:0:0.4"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetName="centerImg" Storyboard.TargetProperty="Height" To="150.0" Duration="0:0:0.4"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetName="leftImgTrans" Storyboard.TargetProperty="X" To="50.0" Duration="0:0:0.2"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetName="centerImgTrans" Storyboard.TargetProperty="X" To="50.0" Duration="0:0:0.2"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetName="rightImgTrans" Storyboard.TargetProperty="X" To="-50.0" Duration="0:0:0.2"></DoubleAnimation>
+                                <DoubleAnimation BeginTime="0:0:0.4" Storyboard.TargetName="leftImg" Storyboard.TargetProperty="Height" To="150.0" Duration="0:0:0"></DoubleAnimation>
+                                <DoubleAnimation BeginTime="0:0:0.4" Storyboard.TargetName="centerImg" Storyboard.TargetProperty="Height" To="170.0" Duration="0:0:0"></DoubleAnimation>
+                                <DoubleAnimation BeginTime="0:0:0.4" Storyboard.TargetName="leftImgTrans" Storyboard.TargetProperty="X" To="0.0" Duration="0:0:0"></DoubleAnimation>
+                                <DoubleAnimation BeginTime="0:0:0.4" Storyboard.TargetName="centerImgTrans" Storyboard.TargetProperty="X" To="0.0" Duration="0:0:0"></DoubleAnimation>
+                                <DoubleAnimation BeginTime="0:0:0.4" Storyboard.TargetName="rightImgTrans" Storyboard.TargetProperty="X" To="0.0" Duration="0:0:0"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <Button Width="10" Height="30" x:Name="btnR" HorizontalAlignment="Right" Command="{Binding GoLastPhotoCommand}" Panel.ZIndex="1" Margin="0,0,10,0">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="PreviewMouseLeftButtonDown" SourceName="btnR">
+                        <BeginStoryboard >
+                            <Storyboard>
+                                <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="rightImg" Storyboard.TargetProperty="Height" To="170.0" Duration="0:0:0.4"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetName="centerImg" Storyboard.TargetProperty="Height" To="150.0" Duration="0:0:0.4"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetName="rightImgTrans" Storyboard.TargetProperty="X" To="-50.0" Duration="0:0:0.2"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetName="centerImgTrans" Storyboard.TargetProperty="X" To="-50.0" Duration="0:0:0.2"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetName="leftImgTrans" Storyboard.TargetProperty="X" To="50.0" Duration="0:0:0.2"></DoubleAnimation>
+                                <DoubleAnimation BeginTime="0:0:0.4" Storyboard.TargetName="rightImg" Storyboard.TargetProperty="Height" To="150.0" Duration="0:0:0"></DoubleAnimation>
+                                <DoubleAnimation BeginTime="0:0:0.4" Storyboard.TargetName="centerImg" Storyboard.TargetProperty="Height" To="170.0" Duration="0:0:0"></DoubleAnimation>
+                                <DoubleAnimation BeginTime="0:0:0.4" Storyboard.TargetName="rightImgTrans" Storyboard.TargetProperty="X" To="0.0" Duration="0:0:0"></DoubleAnimation>
+                                <DoubleAnimation BeginTime="0:0:0.4" Storyboard.TargetName="centerImgTrans" Storyboard.TargetProperty="X" To="0.0" Duration="0:0:0"></DoubleAnimation>
+                                <DoubleAnimation BeginTime="0:0:0.4" Storyboard.TargetName="leftImgTrans" Storyboard.TargetProperty="X" To="0.0" Duration="0:0:0"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>
