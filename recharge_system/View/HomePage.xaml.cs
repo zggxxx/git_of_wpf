@@ -139,5 +139,10 @@ namespace recharge_system.View
         {
             this.frame.NavigationService.Navigate(new Uri("../View/DependencyPropertyPage.xaml", UriKind.Relative));
         }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            this.frame.NavigationService.Navigate(new Uri("../View/Lili3Page.xaml", UriKind.Relative));
+        }
     }
 }
