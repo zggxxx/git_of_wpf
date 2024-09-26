@@ -1,0 +1,23 @@
+﻿<Page x:Class="recharge_system.View.DataPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:recharge_system.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DataPage" Background="LightYellow" >
+
+    <Grid>
+        <ListView Background="Transparent" >
+            <ListView.View>
+                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="流程工步信息">
+                    <GridViewColumn Header="工步号" Width="100"></GridViewColumn>
+                    <GridViewColumn Header="工步" Width="200"></GridViewColumn>
+                    <GridViewColumn Header="采样" Width="100"></GridViewColumn>
+                    <GridViewColumn Header="测试温度"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>
